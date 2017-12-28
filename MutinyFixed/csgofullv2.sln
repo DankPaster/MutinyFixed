@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nvollib", "CSGOFullv2\CSGOFullv2.vcxproj", "{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Ignacio|Win32 = Debug Ignacio|Win32
+		Debug Laptop|Win32 = Debug Laptop|Win32
+		Debug|Win32 = Debug|Win32
+		JakeRelease|Win32 = JakeRelease|Win32
+		Release ATI|Win32 = Release ATI|Win32
+		Release ATISSE2|Win32 = Release ATISSE2|Win32
+		Release Debug Heartbeat|Win32 = Release Debug Heartbeat|Win32
+		Release Ignacio|Win32 = Release Ignacio|Win32
+		Release LLInjectable|Win32 = Release LLInjectable|Win32
+		Release No Heartbeat|Win32 = Release No Heartbeat|Win32
+		Release NVAVX|Win32 = Release NVAVX|Win32
+		Release NVSSE2|Win32 = Release NVSSE2|Win32
+		Release Vista|Win32 = Release Vista|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Debug Ignacio|Win32.ActiveCfg = Debug Ignacio|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Debug Ignacio|Win32.Build.0 = Debug Ignacio|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Debug Laptop|Win32.ActiveCfg = Debug Laptop|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Debug Laptop|Win32.Build.0 = Debug Laptop|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Debug|Win32.Build.0 = Debug|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.JakeRelease|Win32.ActiveCfg = JakeRelease|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.JakeRelease|Win32.Build.0 = JakeRelease|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release ATI|Win32.ActiveCfg = Release ATI|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release ATI|Win32.Build.0 = Release ATI|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release ATISSE2|Win32.ActiveCfg = Release ATISSE2|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release ATISSE2|Win32.Build.0 = Release ATISSE2|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release Debug Heartbeat|Win32.ActiveCfg = Release Debug Heartbeat|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release Debug Heartbeat|Win32.Build.0 = Release Debug Heartbeat|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release Ignacio|Win32.ActiveCfg = Release Ignacio|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release Ignacio|Win32.Build.0 = Release Ignacio|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release LLInjectable|Win32.ActiveCfg = Release LLInjectable|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release LLInjectable|Win32.Build.0 = Release LLInjectable|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release No Heartbeat|Win32.ActiveCfg = Release No Heartbeat|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release No Heartbeat|Win32.Build.0 = Release No Heartbeat|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release NVAVX|Win32.ActiveCfg = Release NVAVX|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release NVAVX|Win32.Build.0 = Release NVAVX|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release NVSSE2|Win32.ActiveCfg = Release NVSSE2|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release NVSSE2|Win32.Build.0 = Release NVSSE2|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release Vista|Win32.ActiveCfg = Release Vista|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release Vista|Win32.Build.0 = Release Vista|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release|Win32.ActiveCfg = Release LLInjectable|Win32
+		{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}.Release|Win32.Build.0 = Release LLInjectable|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

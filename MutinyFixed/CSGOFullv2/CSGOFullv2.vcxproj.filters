@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Custom_SDK">
+      <UniqueIdentifier>{822aeadb-1d85-4080-bbc4-c64949925d59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Custom_SDK">
+      <UniqueIdentifier>{2f236485-b443-4662-b35c-9e60d76a9a70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Licensing">
+      <UniqueIdentifier>{b5e847c2-a8cb-4c49-bf25-269c7e7f7625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Licensing">
+      <UniqueIdentifier>{094368d2-f613-45f3-a2c4-75ed6d2699c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Usefuls">
+      <UniqueIdentifier>{18efa01a-50b6-4db5-85b5-0c047e0dd101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resources">
+      <UniqueIdentifier>{8388266f-84b2-42af-a72a-e205ccb4daed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Hooks">
+      <UniqueIdentifier>{dcb21877-4d78-4dd0-b123-7065e0c45182}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Usefuls">
+      <UniqueIdentifier>{6d7011a5-836e-4b9c-ab11-bfd392cf7d43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Drawing">
+      <UniqueIdentifier>{27983ef3-a621-4447-8330-17839e234d7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Drawing">
+      <UniqueIdentifier>{5732513b-df8a-4ce8-809e-489d158cb0be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Offsets">
+      <UniqueIdentifier>{c02a63ad-5b44-4fc4-882b-c677c0dd04c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hooks">
+      <UniqueIdentifier>{d20a0b09-6db5-422a-b206-b35a809e9018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VMProtect">
+      <UniqueIdentifier>{00d248d3-5b94-4a1a-829f-fd1a48d2561e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{09014fdb-7a33-4de7-95ac-0b49572be59e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CSGO_HX.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMemory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FakeLag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BunnyHop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NoRecoil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Aimbot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoWall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pSilent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FixMove.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NoSpread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorCodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KnifeBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Triggerbot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CBaseHandle.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseAnimating.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseCombatWeapon.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CViewSetup.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IBaseClientDLL.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientModeShared.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientEntityList.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IModelInfoClient.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameMovement.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IGlobalVarsBase.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IEngineTrace.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IEngineClient.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IPrediction.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="NetVarManager.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Trace.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="VPhysics.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Licensing.h">
+      <Filter>Header Files\Licensing</Filter>
+    </ClInclude>
+    <ClInclude Include="Licensing2.h">
+      <Filter>Header Files\Licensing</Filter>
+    </ClInclude>
+    <ClInclude Include="Usefuls.h">
+      <Filter>Header Files\Usefuls</Filter>
+    </ClInclude>
+    <ClInclude Include="CharSplit.h">
+      <Filter>Header Files\Usefuls</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="OverrideView.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateMove.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="TraceRay.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="VTHook.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="hDirectX.h">
+      <Filter>Header Files\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="hDrawings.h">
+      <Filter>Header Files\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Overlay.h">
+      <Filter>Header Files\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="misc.h">
+      <Filter>Header Files\Usefuls</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Header Files\Usefuls</Filter>
+    </ClInclude>
+    <ClInclude Include="Offsets.h">
+      <Filter>Header Files\Offsets</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\Usefuls</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseEntity.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Reporting.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="SetClanTag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ICvar.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="ConVar.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CUtlMemory.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Netchan.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="bfwrite.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="netadr.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CGOTVRecorder.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerList.h">
+      <Filter>Header Files\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="ESP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HitChance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model_types.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEventListener.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EncryptString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RunCommand.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="player_lagcompensation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utlblockmemory.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="utlfixedmemory.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="utlrbtree.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="utllinkedlist.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="utlmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="platform.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="utlvector.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="memalloc.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="mathshit.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="INetchannelInfo.h">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="ICollidable.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="RadianEuler.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="GrenadePrediction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoGrief.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ivdebugoverlay.h">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="IVRenderView.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinWindow.h">
+      <Filter>Header Files\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Interpolation.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="GetViewModelFOV.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Profiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdPerson.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utlvectorsimple.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="imdlcache.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Deque.h">
+      <Filter>Header Files\Usefuls</Filter>
+    </ClInclude>
+    <ClInclude Include="MutinyInject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Targetting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassIDS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMovementSimulation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TE_FireBullets.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="dataupdatetypes.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="TE_EffectDispatch.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnBlood.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="NameChanger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_playerresource.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="GOTV.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSideAnimationList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bitvec.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="coordsize.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="worldsize.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoBone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VMProtectDefs.h">
+      <Filter>VMProtect</Filter>
+    </ClInclude>
+    <ClInclude Include="Intersection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NetVars.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="LegitBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IVPanel.h">
+      <Filter>Header Files\Custom_SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\JSON\JSON.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\Logging\Logging.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\Menu\Fonts.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\Menu\Menu.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\ModuleSecurity\ModuleSec.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\RSA\RSA.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\StringEncryption\StringEncryption.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\WebConfig\WebConfig.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\Winsock\Winsock.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\Encryption\Crypto.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\Heartbeat\Heartbeat.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\imconfig.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\imgui.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\imgui_impl.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\imgui_internal.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\stb_rect_pack.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\stb_textedit.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\stb_truetype.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\ClientFramework\Framework\Include\Frame-Include.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\Drawing</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CSGO_HX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMemory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeLag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bunnyhop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NoRecoil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Aimbot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoWall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pSilent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FixMove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NoSpread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KnifeBot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Triggerbot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseAnimating.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="IBaseClientDLL.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="NetVarManager.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Trace.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Licensing.cpp">
+      <Filter>Source Files\Licensing</Filter>
+    </ClCompile>
+    <ClCompile Include="Licensing2.cpp">
+      <Filter>Source Files\Licensing</Filter>
+    </ClCompile>
+    <ClCompile Include="CharSplit.cpp">
+      <Filter>Source Files\Usefuls</Filter>
+    </ClCompile>
+    <ClCompile Include="cDirectX.cpp">
+      <Filter>Source Files\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="cDrawings.cpp">
+      <Filter>Source Files\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Overlay.cpp">
+      <Filter>Source Files\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\Usefuls</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseEntity.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SetClanTag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConVar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerList.cpp">
+      <Filter>Source Files\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="ESP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HitChance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEventListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EncryptString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player_lagcompensation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mathshit.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="misc.cpp">
+      <Filter>Source Files\Usefuls</Filter>
+    </ClCompile>
+    <ClCompile Include="RadianEuler.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="CBaseHandle.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="GrenadePrediction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoGrief.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinWindow.cpp">
+      <Filter>Source Files\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Profiler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MutinyInject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Targetting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMovementSimulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LegitBot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NameChanger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GOTV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSideAnimationList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="netadr.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="bfwrite.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoBone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseCombatWeapon.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Intersection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VTHook.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdPerson.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnBlood.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="TraceRay.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="Reporting.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="GetViewModelFOV.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="TE_FireBullets.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="RunCommand.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="OverrideView.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="TE_EffectDispatch.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMove.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameStageNotify.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="NetVars.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="IsPaused.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoPlayingBack.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="SendDatagram.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaySound.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="EmitSounds.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="PaintTraverse.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="IVPanel.cpp">
+      <Filter>Source Files\Custom_SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameUpdatePostEntityThink.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorCodes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\JSON\JSON.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\Logging\Logging.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\ModuleSecurity\ModuleSec.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\RSA\RSA.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\StringEncryption\StringEncryption.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\WebConfig\WebConfig.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\Winsock\Winsock.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\Encryption\Crypto.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\Heartbeat\Heartbeat.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\ImGUI\imgui.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\ImGUI\imgui_demo.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\ImGUI\imgui_draw.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\ClientFramework\Framework\ImGUI\imgui_impl.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="framework.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="nvollib.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,974 @@
+#include "player_lagcompensation.h"
+#include "Interfaces.h"
+#include "CreateMove.h"
+#include "ConVar.h"
+#include "utlvectorsimple.h"
+#include "INetchannelInfo.h"
+#include <math.h>
+#include "BaseCombatWeapon.h"
+#include "Aimbot.h"
+#include "Triggerbot.h"
+#include "HitChance.h"
+#include "Animation.h"
+#include <fstream>
+
+ConVar *sv_unlag;
+ConVar *sv_maxunlag;
+ConVar *sv_lagflushbonecache;
+ConVar *sv_lagpushticks;
+ConVar *sv_client_min_interp_ratio;
+ConVar *sv_client_max_interp_ratio;
+ConVar *sv_maxupdaterate;
+ConVar *sv_minupdaterate;
+ConVar *cl_updaterate;
+ConVar *sv_gravity = nullptr;
+ConVar *cl_interp_ratio = nullptr;
+
+char *sv_unlagstr = new char[9]{ 9, 12, 37, 15, 20, 22, 27, 29, 0 }; /*sv_unlag*/
+char *sv_maxunlagstr = new char[12]{ 9, 12, 37, 23, 27, 2, 15, 20, 22, 27, 29, 0 }; /*sv_maxunlag*/
+char *sv_lagflushbonecachestr = new char[21]{ 9, 12, 37, 22, 27, 29, 28, 22, 15, 9, 18, 24, 21, 20, 31, 25, 27, 25, 18, 31, 0 }; /*sv_lagflushbonecache*/
+char *sv_lagpushticksstr = new char[16]{ 9, 12, 37, 22, 27, 29, 10, 15, 9, 18, 14, 19, 25, 17, 9, 0 }; /*sv_lagpushticks*/
+char *sv_client_min_interp_ratio_str = new char[27]{ 9, 12, 37, 25, 22, 19, 31, 20, 14, 37, 23, 19, 20, 37, 19, 20, 14, 31, 8, 10, 37, 8, 27, 14, 19, 21, 0 }; /*sv_client_min_interp_ratio*/
+char *sv_client_max_interp_ratio_str = new char[27]{ 9, 12, 37, 25, 22, 19, 31, 20, 14, 37, 23, 27, 2, 37, 19, 20, 14, 31, 8, 10, 37, 8, 27, 14, 19, 21, 0 }; /*sv_client_max_interp_ratio*/
+char *sv_maxupdateratestr = new char[17]{ 9, 12, 37, 23, 27, 2, 15, 10, 30, 27, 14, 31, 8, 27, 14, 31, 0 }; /*sv_maxupdaterate*/
+char *sv_minupdateratestr = new char[17]{ 9, 12, 37, 23, 19, 20, 15, 10, 30, 27, 14, 31, 8, 27, 14, 31, 0 }; /*sv_minupdaterate*/
+char *cl_updateratestr = new char[14]{ 25, 22, 37, 15, 10, 30, 27, 14, 31, 8, 27, 14, 31, 0 }; /*cl_updaterate*/
+char *cl_interp_ratiostr = new char[16]{ 25, 22, 37, 19, 20, 14, 31, 8, 10, 37, 8, 27, 14, 19, 21, 0 }; /*cl_interp_ratio*/
+char *sv_gravitystr = new char[11]{ 9, 12, 37, 29, 8, 27, 12, 19, 14, 3, 0 }; /*sv_gravity*/
+
+bool LagCompensationConvarsReceived = false;
+
+bool GetLagCompensationConVars()
+{
+	if (LagCompensationConvarsReceived)
+		return true;
+
+	DecStr(sv_unlagstr, 8);
+	DecStr(sv_maxunlagstr, 11);
+	DecStr(sv_lagflushbonecachestr, 20);
+	DecStr(sv_lagpushticksstr, 15);
+	DecStr(sv_client_min_interp_ratio_str, 26);
+	DecStr(sv_client_max_interp_ratio_str, 26);
+	DecStr(sv_maxupdateratestr, 16);
+	DecStr(sv_minupdateratestr, 16);
+	DecStr(cl_updateratestr, 13);
+	DecStr(cl_interp_ratiostr, 15);
+	DecStr(sv_gravitystr, 10);
+	sv_unlag = Interfaces::Cvar->FindVar(sv_unlagstr);
+	sv_maxunlag = Interfaces::Cvar->FindVar(sv_maxunlagstr);
+	sv_lagflushbonecache = Interfaces::Cvar->FindVar(sv_lagflushbonecachestr);
+	sv_lagpushticks = Interfaces::Cvar->FindVar(sv_lagpushticksstr);
+	sv_client_min_interp_ratio = Interfaces::Cvar->FindVar(sv_client_min_interp_ratio_str);
+	sv_client_max_interp_ratio = Interfaces::Cvar->FindVar(sv_client_max_interp_ratio_str);
+	sv_maxupdaterate = Interfaces::Cvar->FindVar(sv_maxupdateratestr);
+	sv_minupdaterate = Interfaces::Cvar->FindVar(sv_minupdateratestr);
+	cl_updaterate = Interfaces::Cvar->FindVar(cl_updateratestr);
+	cl_interp_ratio = Interfaces::Cvar->FindVar(cl_interp_ratiostr);
+	sv_gravity = Interfaces::Cvar->FindVar(sv_gravitystr);
+	EncStr(sv_unlagstr, 8);
+	EncStr(sv_maxunlagstr, 11);
+	EncStr(sv_lagflushbonecachestr, 20);
+	EncStr(sv_lagpushticksstr, 15);
+	EncStr(sv_client_min_interp_ratio_str, 26);
+	EncStr(sv_client_max_interp_ratio_str, 26);
+	EncStr(sv_maxupdateratestr, 16);
+	EncStr(sv_minupdateratestr, 16);
+	EncStr(cl_updateratestr, 13);
+	EncStr(cl_interp_ratiostr, 15);
+	EncStr(sv_gravitystr, 10);
+	if (cl_interp_ratio && sv_gravity)
+	{
+		LagCompensationConvarsReceived = true;
+		return true;
+	}
+	return false;
+}
+
+void FSN_RestoreNetvars(StoredNetvars *src, CBaseEntity *const Entity, QAngle EyeAngles, float LowerBodyYaw)
+{
+	Entity->SetMaxs(src->maxs);
+	Entity->SetMins(src->mins);
+	Entity->SetDuckAmount(src->duckamount);
+	Entity->SetDuckSpeed(src->duckspeed);
+	Entity->SetEyeAngles(EyeAngles);
+	Entity->SetLowerBodyYaw(LowerBodyYaw);//(src->lowerbodyyaw);
+}
+
+void CM_RestoreNetvars(StoredNetvars *const src, CBaseEntity *const Entity)
+{
+	//Restore pose parameters
+	float* flPose = (float*)((uintptr_t)Entity + m_flPoseParameter);
+	float body_yaw = flPose[11];
+	float body_pitch = flPose[12];
+	memcpy((void*)flPose, &src->flPoseParameter, (sizeof(float) * 24));
+	//Do not restore body_yaw pose parameter or body_pitch
+	flPose[11] = body_yaw;
+	flPose[12] = body_pitch;
+
+	//Restore animations
+	int animcount = Entity->GetNumAnimOverlays();
+	for (int i = 0; i < animcount; i++)
+	{
+		C_AnimationLayer* pLayer = Entity->GetAnimOverlay(i);
+		*pLayer = src->AnimLayer[i];
+	}
+
+	Entity->SetViewOffset(src->viewoffset);
+	Entity->SetVelocity(src->velocity);
+	//Entity->SetVelocityModifier(src->velocitymodifier);
+	Entity->SetFallVelocity(src->fallvelocity);
+	//Entity->SetFlags(src->flags);
+	//Entity->SetSimulationTime(src->simulationtime);
+	Entity->SetBaseVelocity(src->basevelocity);
+	//Entity->SetCycle(src->cycle);
+	Entity->SetMaxs(src->maxs);
+	Entity->SetMins(src->mins);
+	//Entity->SetSequence(src->sequence);
+	//Entity->SetPlaybackRate(src->playbackrate);
+	//Entity->SetPunch(src->aimpunch);
+	//Entity->SetAngleRotation(src->angles);
+	//Entity->SetLowerBodyYaw(src->lowerbodyyaw);
+	//Entity->SetGroundEntity(src->groundentity); //could possibly crash if entity is gone
+	//Entity->SetEyeAngles(EyeAngles);
+	//Entity->SetVecLadderNormal(src->laddernormal);
+	//Entity->SetDucked(src->isducked);
+	//Entity->SetDucking(src->isducking);
+	//Entity->SetInDuckJump(src->isinduckjump);
+	//Entity->SetDuckTimeMsecs(src->ducktimemsecs);
+	//Entity->SetJumpTimeMsecs(src->jumptimemsecs);
+	Entity->SetDuckAmount(src->duckamount);
+	Entity->SetDuckSpeed(src->duckspeed);
+	//Entity->UpdateClientSideAnimation();
+	//Entity->SetLaggedMovement(src->laggedmovement);
+	//Entity->SetAnimTime(src->animtime);
+	//Entity->SetNetworkOrigin(src->networkorigin);//(src->networkorigin);
+	//Entity->SetOrigin(src->origin);// src->networkorigin);// src->origin);
+	//Entity->SetAbsOrigin(src->origin);
+	//if (Absangles.y < 0)
+	//	Absangles.y += 360.0f;
+	//Entity->SetRenderAngles(EyeAngles);
+	//Entity->SetAbsAngles(Absangles);
+	//Entity->SetOrigin(src->origin);
+	//Entity->SetNetworkOrigin(src->networkorigin);
+	//Entity->SetAbsOrigin(src->origin);
+	Entity->SetAbsOrigin(src->origin);
+	//Entity->SetupBones(nullptr, MAXSTUDIOBONES, BONE_USED_BY_ANYTHING, src->simulationtime);
+	//Entity->DrawHitboxes(ColorRGBA(255, 0, 0, 255), 0.1f);
+}
+
+int GetEstimatedServerTickCount(float latency)
+{
+	return (int)floorf((float)((float)(latency) / ReadFloat((uintptr_t)&Interfaces::Globals->interval_per_tick)) + 0.5) + 1 + ReadInt((uintptr_t)&Interfaces::Globals->tickcount);
+}
+
+float GetEstimatedServerTime()
+{
+	return LocalPlayer->GetTickBase() * ReadFloat((uintptr_t)&Interfaces::Globals->interval_per_tick);
+}
+
+float GetNetworkLatency(int DIRECTION)
+{
+	// Get true latency
+	INetChannelInfo *nci = Interfaces::Engine->GetNetChannelInfo();
+	if (nci)
+	{
+		//float IncomingLatency = nci->GetAvgLatency(FLOW_INCOMING);
+		float OutgoingLatency = nci->GetAvgLatency(DIRECTION);
+		return OutgoingLatency;// + IncomingLatency;
+	}
+	return 0.0f;
+}
+
+//See if a tick is within limits to be accepted by the server for hit registration
+bool bTickIsValid(int tick)
+{
+#define NEW_VERSION
+#ifdef NEW_VERSION
+	float m_flLerpTime = cl_interp_ratio->GetFloat() / cl_updaterate->GetFloat();
+	if (RemoveInterpChk.Checked)
+		tick += TIME_TO_TICKS(m_flLerpTime);
+
+	if (fabsf(TICKS_TO_TIME(ReadInt((uintptr_t)&Interfaces::Globals->tickcount)) - TICKS_TO_TIME(tick)) <= 0.2f)
+		return true;
+	return false;
+
+#else
+#define ALIENSWARM_VERSION
+#ifdef ALIENSWARM_VERSION
+	float latency = GetNetworkLatency();
+	const float SV_MAXUNLAG = 1.0f;
+	float m_flLerpTime = cl_interp_ratio->GetFloat() / cl_updaterate->GetFloat();
+	if (RemoveInterpChk.Checked)
+		tick += TIME_TO_TICKS(m_flLerpTime);
+	float correct = clamp(latency + m_flLerpTime, 0.0f, SV_MAXUNLAG);
+	float flTargetTime = TICKS_TO_TIME(tick) - m_flLerpTime;
+	float deltaTime = correct - (GetEstimatedServerTime() - flTargetTime);
+	if (fabs(deltaTime) > 0.2f)
+	{
+		return false;
+	}
+	return true;
+#else
+	//SDK 2013 VERSION
+	float latency = GetNetworkLatency();
+	const float SV_MAXUNLAG = 1.0f;
+	float m_flLerpTime = cl_interp_ratio->GetFloat() / cl_updaterate->GetFloat();
+	int lerpTicks = TIME_TO_TICKS(m_flLerpTime);
+	if (RemoveInterpChk.Checked)
+		tick += lerpTicks;
+	float correct = clamp(latency + TICKS_TO_TIME(lerpTicks), 0.0f, SV_MAXUNLAG);
+	int targettick = tick - lerpTicks;
+	float deltaTime = correct - TICKS_TO_TIME(GetEstimatedServerTickCount(latency) - targettick);
+	if (fabs(deltaTime) > 0.2f)
+	{
+		return false;
+	}
+	return true;
+#endif
+#endif
+}
+
+extern void GetIdealYaw(float& yaw, int correctedindex, CustomPlayer* pCPlayer, CBaseEntity* Entity, CBaseEntity* pLocalEntity);
+extern void GetIdealPitch(float& pitch, int correctedindex, CustomPlayer* pCPlayer, CBaseEntity* Entity, CBaseEntity* pLocalEntity);
+
+void PredictLowerBodyYaw(CustomPlayer *const pCPlayer, CBaseEntity*const Entity, float LowerBodyDelta)
+{
+	float flCurrentBodyYaw = pCPlayer->CurrentNetVars.lowerbodyyaw;
+	if (Entity->GetVelocity().Length() == 0.0f)
+	{
+		if (pCPlayer->LowerBodyEyeDelta != 0.0f)
+		{
+			//Not a very reliable resolve method
+			if (fabsf(flCurrentBodyYaw - pCPlayer->PredictedRandomFakeAngle) < 10.0f)
+			{
+				//random fake
+				pCPlayer->Personalize.correctedindex = 13;
+			}
+			pCPlayer->PredictedRandomFakeAngle = pCPlayer->CurrentNetVars.eyeangles.y + (pCPlayer->LowerBodyEyeDelta * 0.5f);
+		}
+
+
+		if (pCPlayer->LowerBodyDelta != 0.0f)
+		{
+			if (pCPlayer->Personalize.bSpinbotting && fabsf(LowerBodyDelta - pCPlayer->LowerBodyDelta) < 10.0f)
+			{
+				//fake spin
+				pCPlayer->Personalize.correctedindex = 9;
+			}
+			else
+			{
+				if (pCPlayer->PredictedLinearFakeAngle != 0.0f)
+				{
+					if (fabsf(flCurrentBodyYaw - pCPlayer->PredictedLinearFakeAngle) < 15.0f)
+					{
+						//linear fake
+						pCPlayer->Personalize.correctedindex = 11;
+					}
+				}
+			}
+			pCPlayer->PredictedLinearFakeAngle = flCurrentBodyYaw + LowerBodyDelta;
+			ClampY(pCPlayer->PredictedLinearFakeAngle);
+		}
+
+		pCPlayer->LowerBodyDelta = LowerBodyDelta;
+
+		float lbed = flCurrentBodyYaw - pCPlayer->CurrentNetVars.eyeangles.y;
+		ClampY(lbed);
+		pCPlayer->LowerBodyEyeDelta = lbed;
+	}
+}
+
+void OnNewTickRecordReceived(CBaseEntity*const Entity, CustomPlayer*const pCPlayer, StoredNetvars*const record)
+{
+	//Check to see if the player fired this tick
+	CBaseCombatWeapon *pWeapon = Entity->GetWeapon();
+	if (pWeapon)
+	{
+		if (pCPlayer->CurrentWeapon == pWeapon)
+		{
+			//Don't count weapon changes
+			int Bullets = pWeapon->GetClipOne();
+			if (pCPlayer->BulletsLeft != Bullets)
+			{
+				//if (pCPlayer->EyeAnglesUpdated)
+				{
+					//Make this record known as a firing update
+					record->FiredBullet = true;
+					//Remember this tick as the newest firing update
+					pCPlayer->LatestFiringTick = record;
+				}
+				pCPlayer->BulletsLeft = Bullets;
+			}
+		}
+	}
+	pCPlayer->CurrentWeapon = pWeapon;
+
+
+	//if (pCPlayer->EyeAnglesUpdated)
+	//{
+	pCPlayer->EyeAnglesUpdated = false;
+	//}
+
+	//Check to see if the player is using a pitch that is easily hittable
+	if (ClampXr(record->eyeangles.x) < -65.0f)
+	{
+		//Remember this tick as the newest pitching up update
+		pCPlayer->LatestPitchUpTick = record;
+		//Make this record known as a pitching up tick
+		record->PitchingUp = true;
+	}
+
+	//See if lower body updated this tick
+	if (pCPlayer->LowerBodyUpdated)
+	{
+		//Check to see if we already have a lower body update tick to delta with
+		if (pCPlayer->LowerBodyCanBeDeltaed)
+		{
+			//Get the delta
+			float lbd = record->lowerbodyyaw - pCPlayer->flLastLowerBodyYaw;
+			ClampY(lbd);
+
+			//Only consider this a lower body yaw update if the delta changed or the update is new enough.
+			//Servers like to send duplicate lower body updates
+			if (lbd != 0.0f || Interfaces::Globals->curtime - pCPlayer->TimeLowerBodyUpdated >= 0.1875f)
+			{
+				//Try to predict what the player's yaw will be
+				if (ExperimentalResolverChk.Checked)
+				{
+					PredictLowerBodyYaw(pCPlayer, Entity, lbd);
+				}
+
+				//Remember this tick as the newest lower body update
+				pCPlayer->LatestLowerBodyUpdate = record;
+				//Make this record known as a lower body update
+				record->LowerBodyUpdated = true;
+			}
+
+			//Set time stamp
+			pCPlayer->TimeLowerBodyUpdated = Interfaces::Globals->curtime;
+		}
+		else
+		{
+			//First lower body update
+			//Remember this tick as the newest lower body update
+			pCPlayer->LatestLowerBodyUpdate = record;
+			//Set time stamp
+			pCPlayer->TimeLowerBodyUpdated = Interfaces::Globals->curtime;
+			pCPlayer->LowerBodyCanBeDeltaed = true;
+		}
+
+		//Remember current lower body yaw
+		pCPlayer->flLastLowerBodyYaw = record->lowerbodyyaw;
+		pCPlayer->LowerBodyUpdated = false;
+	}
+
+	//If player didn't choke ticks then backtrack to this tick always
+	if (pCPlayer->TicksChoked == 0)
+	{
+		pCPlayer->LatestRealTick = record;
+		//Make this record known as a real update
+		record->IsRealTick = true;
+	}
+}
+
+void InvalidateTicks(CustomPlayer* pCPlayer, int from, int to)
+{
+	std::deque<StoredNetvars*>*Records = &pCPlayer->Personalize.m_PlayerRecords;
+	for (from; from <= to; from++)
+	{
+		StoredNetvars *record = Records->at(from);
+		//Don't bother continuing the loop if we already invalidated the rest of the ticks
+		if (!record->IsValidForBacktracking)
+			break;
+		record->IsValidForBacktracking = false;
+		ClearImportantTicks(pCPlayer, record);
+	}
+}
+
+void ValidateTickRecords(CustomPlayer *const pCPlayer, CBaseEntity*const Entity)
+{
+	const auto Records = &pCPlayer->Personalize.m_PlayerRecords;
+
+	//Remove excess ticks
+	if (Records->size() > 72)
+	{
+		StoredNetvars* oldestrecord = Records->back();
+		//If the oldest tick is an important update, then get rid of it
+		ClearImportantTicks(pCPlayer, oldestrecord);
+		//Free the memory used by the oldest tick record
+		delete oldestrecord;
+		//Delete the oldest tick record
+		Records->pop_back();
+	}
+
+	const int maxindex = Records->size() - 1;
+	for (int index = 0; index < maxindex; index++)
+	{
+		StoredNetvars *thisrecord = Records->at(index);
+		//If this record is already invalidated, then just leave the loop
+		if (!thisrecord->IsValidForBacktracking)
+			break;
+		//Check to see if this tick is still new enough to backtrack to
+		if (!bTickIsValid(thisrecord->tickcount))
+		{
+			//Invalidate this and every tick older
+			InvalidateTicks(pCPlayer, index, maxindex);
+			break;
+		}
+
+		int nextrecord = index + 1;
+		StoredNetvars *prevrecord = Records->at(nextrecord);
+		//If this record is already invalidated, then just leave the loop
+		if (!prevrecord->IsValidForBacktracking)
+			break;
+
+		//Check to see if the previous tick is still new enough to backtrack to
+		if (!bTickIsValid(prevrecord->tickcount))
+		{
+			//Invalidate the previous record and every tick older than it
+			InvalidateTicks(pCPlayer, nextrecord, maxindex);
+			break;
+		}
+
+		//Check to see if the player teleported too far from between this record and the one before it
+		float OriginDelta = (thisrecord->origin - prevrecord->origin).Length2DSqr();
+
+		if (OriginDelta > (64.0f * 64.0f))
+		{
+			//The player teleported too far. Invalidate this and any prior ticks
+			InvalidateTicks(pCPlayer, nextrecord, maxindex);
+			break;
+		}
+	}
+}
+
+//Backtrack the eye angles and various other netvars
+void FSN_BacktrackPlayer(CustomPlayer *const pCPlayer, CBaseEntity*const Entity)
+{
+	//Get the target tick to backtrack to
+	StoredNetvars *backtracktick = pCPlayer->LatestLowerBodyUpdate ? pCPlayer->LatestLowerBodyUpdate : pCPlayer->LatestFiringTick ? pCPlayer->LatestFiringTick : pCPlayer->LatestRealTick ? pCPlayer->LatestRealTick : pCPlayer->LatestPitchUpTick;
+	QAngle TargetEyeAngles;
+	if (backtracktick)
+	{
+		//Get destination eye angles to backtrack to
+		if (backtracktick == pCPlayer->LatestFiringTick)
+			TargetEyeAngles = GetFiringTickAngles(pCPlayer, Entity, backtracktick);
+		else if (backtracktick == pCPlayer->LatestRealTick)
+		{
+			TargetEyeAngles = backtracktick->eyeangles;
+		}
+		else //if (backtracktick == pCPlayer->LatestLowerBodyUpdate || backtracktick == pCPlayer->LatestPitchUpTick)
+			TargetEyeAngles = QAngle(backtracktick->eyeangles.x, backtracktick->lowerbodyyaw, backtracktick->eyeangles.z);
+
+		//If Origin changed greater than sv_lagcompensation_teleport_dist squared then use current vars with backtracked yaw/pitch
+		if ((Entity->GetOrigin() - backtracktick->origin).Length2DSqr() > (64.0f * 64.0f))
+			FSN_RestoreNetvars(pCPlayer->Personalize.m_PlayerRecords.front(), Entity, TargetEyeAngles, TargetEyeAngles.y);
+		else
+			FSN_RestoreNetvars(backtracktick, Entity, TargetEyeAngles, TargetEyeAngles.y);
+	}
+	else
+	{
+		//Use current netvars but try to extrapolate their fake angles
+		StoredNetvars* currentvars = pCPlayer->Personalize.m_PlayerRecords.front();
+		TargetEyeAngles = currentvars->eyeangles;
+		GetIdealPitch(TargetEyeAngles.x, pCPlayer->Personalize.correctedindex, pCPlayer, Entity, LocalPlayer);
+		GetIdealYaw(TargetEyeAngles.y, pCPlayer->Personalize.correctedindex, pCPlayer, Entity, LocalPlayer);
+		FSN_RestoreNetvars(currentvars, Entity, TargetEyeAngles, TargetEyeAngles.y);
+	}
+}
+
+//Clears all lag compensation records for this player
+void ClearLagCompensationRecords(CustomPlayer*const pCPlayer)
+{
+	if (!pCPlayer->Personalize.m_PlayerRecords.empty())
+	{
+		pCPlayer->Personalize.m_PlayerRecords.clear();
+		pCPlayer->LowerBodyCanBeDeltaed = false;
+		pCPlayer->LatestFiringTick = nullptr;
+		pCPlayer->LatestLowerBodyUpdate = nullptr;
+		pCPlayer->LatestPitchUpTick = nullptr;
+		pCPlayer->LatestRealTick = nullptr;
+	}
+}
+
+//If the important tick matches the record, delete it
+void ClearImportantTicks(CustomPlayer *const pCPlayer, StoredNetvars *const record)
+{
+	if (record == pCPlayer->LatestFiringTick)
+		pCPlayer->LatestFiringTick = nullptr;
+	if (record == pCPlayer->LatestLowerBodyUpdate)
+		pCPlayer->LatestLowerBodyUpdate = nullptr;
+	if (record == pCPlayer->LatestPitchUpTick)
+		pCPlayer->LatestPitchUpTick = nullptr;
+	if (record == pCPlayer->LatestRealTick)
+		pCPlayer->LatestRealTick = nullptr;
+}
+
+//Update was received from the server, so update netvars
+void LagCompensationPostUpdate(CustomPlayer *const pCPlayer, CBaseEntity*const Entity)
+{
+	float flNewSimulationTime = Entity->GetSimulationTime();
+
+	//See if simulation time is valid yet
+	if (flNewSimulationTime == 0.0f)
+		return;
+
+	//Get address of player records
+	auto Records = &pCPlayer->Personalize.m_PlayerRecords;
+
+	//See if the entity is not valid for backtracking
+	if (Entity->GetDormant() || !Entity->GetAlive() || !LocalPlayer->GetAlive())
+	{
+		//Clear all records
+		ClearLagCompensationRecords(pCPlayer);
+		return;
+	}
+
+#ifdef _DEBUG
+	//Check to make sure the records did not get corrupt
+	if (Records->_Myproxy() == NULL)
+		DebugBreak();
+#endif
+
+	//Store new tick record if simulation time changed or there are no records
+	if (Records->empty() || flNewSimulationTime > Records->front()->simulationtime)
+	{
+		//Store the amount of ticks this player choked
+		pCPlayer->TicksChoked = Records->empty() ? 0 : TIME_TO_TICKS(flNewSimulationTime - Records->front()->simulationtime);
+
+		//Allocate a new tick record
+		StoredNetvars *newtick = new StoredNetvars(Entity, pCPlayer);
+
+		//Store the new tick record
+		Records->push_front(newtick);
+
+		//See if this tick is special (player fired, lower body updated, pitch is up, etc)
+		OnNewTickRecordReceived(Entity, pCPlayer, newtick);
+	}
+
+	//Validate all the tick records. Remove excess ticks, invalidate any that are too old or those in which the player teleported too far
+	ValidateTickRecords(pCPlayer, Entity);
+
+	//Restore player netvars to the best possible tick
+	FSN_BacktrackPlayer(pCPlayer, Entity);
+}
+
+QAngle GetFiringTickAngles(CustomPlayer *const pCPlayer, CBaseEntity*const Entity, StoredNetvars*const  vars)
+{
+	QAngle TargetEyeAngles = vars->eyeangles;
+
+	if (pCPlayer->Personalize.correctedresolvewhenshootingindex > 1)
+	{
+		//Set pitch to last pitch
+		for (auto& tick : pCPlayer->Personalize.m_PlayerRecords)
+		{
+			if (tick->eyeangles.x != TargetEyeAngles.x)
+			{
+				TargetEyeAngles.x = tick->eyeangles.x;
+				if (pCPlayer->Personalize.correctedresolvewhenshootingindex == 4)
+					GetIdealYaw(TargetEyeAngles.y, pCPlayer->Personalize.correctedindex, pCPlayer, Entity, LocalPlayer);
+				break;
+			}
+		}
+	}
+
+	return TargetEyeAngles;
+}
+
+bool CM_BacktrackPlayer(CustomPlayer *const pCPlayer, CBaseEntity*const pLocalEntity, CBaseEntity*const Entity)
+{
+	//Check to see if we have a valid tick to backtrack to
+	StoredNetvars *latest = pCPlayer->LatestLowerBodyUpdate ? pCPlayer->LatestLowerBodyUpdate : pCPlayer->LatestFiringTick ? pCPlayer->LatestFiringTick : pCPlayer->LatestRealTick ? pCPlayer->LatestRealTick : pCPlayer->LatestPitchUpTick;
+	if (latest && latest->IsValidForBacktracking)
+	{
+		//Restore Netvars
+		CM_RestoreNetvars(latest, Entity);
+
+		pCPlayer->BacktrackTick = latest->tickcount;
+		pCPlayer->Backtracked = true;
+		return true;
+	}
+
+	pCPlayer->Backtracked = false;
+	return false;
+}
+
+void SimulateMovement(CSimulationData& data, bool in_air) {
+	if (!(data.m_nFlags & FL_ONGROUND))
+		data.velocity.z -= (Interfaces::Globals->interval_per_tick * sv_gravity->GetFloat());
+
+	else if (in_air)
+		data.velocity.z = std::sqrt(91200.f);
+
+	auto mins = data.m_pEntity->GetMins();
+	auto maxs = data.m_pEntity->GetMaxs();
+
+	auto src = data.absorigin;
+	auto end = src + (data.velocity * Interfaces::Globals->interval_per_tick);
+
+	Ray_t ray;
+	ray.Init(src, end, mins, maxs);
+
+	trace_t trace;
+	CTraceFilter filter;
+	filter.m_icollisionGroup = COLLISION_GROUP_NONE;
+	filter.pSkip = (IHandleEntity*)data.m_pEntity;
+	Interfaces::EngineTrace->TraceRay(ray, CONTENTS_SOLID, &filter, &trace);
+
+	if (trace.fraction != 1.f)
+	{
+		for (int i = 0; i < 2; ++i)
+		{
+			data.velocity -= trace.plane.normal * data.velocity.Dot(trace.plane.normal);
+
+			auto dot = data.velocity.Dot(trace.plane.normal);
+			if (dot < 0.f)
+			{
+				data.velocity.x -= dot * trace.plane.normal.x;
+				data.velocity.y -= dot * trace.plane.normal.y;
+				data.velocity.z -= dot * trace.plane.normal.z;
+			}
+
+			end = trace.endpos + (data.velocity * (Interfaces::Globals->interval_per_tick * (1.f - trace.fraction)));
+			ray.Init(trace.endpos, end, mins, maxs);
+			Interfaces::EngineTrace->TraceRay(ray, CONTENTS_SOLID, &filter, &trace);
+
+			if (trace.fraction == 1.f)
+				break;
+		}
+	}
+
+	data.absorigin = trace.endpos;
+	end = trace.endpos;
+	end.z -= 2.f;
+
+	ray.Init(data.absorigin, end, mins, maxs);
+	Interfaces::EngineTrace->TraceRay(ray, CONTENTS_SOLID, &filter, &trace);
+
+	data.m_nFlags &= ~FL_ONGROUND;
+
+	if (trace.fraction != 1.f && trace.plane.normal.z > 0.7f)
+		data.m_nFlags |= FL_ONGROUND;
+}
+
+inline float NormalizeFloat(float angle) {
+	auto revolutions = angle / 360.f;
+	if (angle > 180.f || angle < -180.f) {
+		revolutions = round(abs(revolutions));
+
+		if (angle < 0.f)
+			angle = (angle + 360.f * revolutions);
+
+		else
+			angle = (angle - 360.f * revolutions);
+
+		return angle;
+	}
+
+	return angle;
+}
+
+
+void CompensateLag(CustomPlayer*const pCPlayer)
+{
+#if 0
+	auto Records = &pCPlayer->Personalize.m_PlayerRecords;
+	if (Records->size() == 0)
+		return;
+	CBaseEntity *Entity = pCPlayer->BaseEntity;
+	StoredNetvars *CurrentRecord = Records->front();
+	CM_RestoreNetvars(CurrentRecord, Entity);
+
+	pCPlayer->BacktrackTick = CurrentRecord->tickcount;
+
+	//If they are not choking or not moving, then just use the current tick
+	if (pCPlayer->TicksChoked == 0 || Entity->GetVelocity().Length() == 0.0f)
+	{
+		return;
+	}
+
+#ifdef _DEBUG
+	if (EXTERNAL_WINDOW)
+	{
+		char test[32];
+		sprintf(test, "Speed %.1f", Entity->GetVelocity().Length());
+		DrawStringUnencrypted(test, Vector2D(100, 100), ColorRGBA(255, 0, 0, 255), pFont);
+	}
+#endif
+
+	float Latency = GetNetworkLatency(FLOW_OUTGOING);
+	Vector NewOrigin = CurrentRecord->origin + CurrentRecord->velocity * (Interfaces::Globals->interval_per_tick * pCPlayer->TicksChoked);
+
+	//Check to see if the new origin will cause them to teleport farther than than the lag compensation will allow
+	if ((NewOrigin - CurrentRecord->origin).Length2DSqr() > (64.0f * 64.0f))
+	{
+#if 0
+		int LatencyTicks = TIME_TO_TICKS(Latency);
+		if (LatencyTicks + pCPlayer->TicksChoked > 8)
+		{
+			NewOrigin = 
+		}
+#endif
+		NewOrigin = Entity->GetOrigin() + (CurrentRecord->velocity * Interfaces::Globals->interval_per_tick);
+		//Entity->SetOrigin(NewOrigin);
+		//Entity->SetNetworkOrigin(NewOrigin);
+		//Entity->SetAbsOrigin(NewOrigin);
+		pCPlayer->BacktrackTick = CurrentUserCmd->tick_count;// +TIME_TO_TICKS(Latency) - 1;
+	}
+#endif
+
+#if 1
+	auto Records = &pCPlayer->Personalize.m_PlayerRecords;
+	int maxindex = Records->max_size() - 1;
+	for (int i = 0; i < maxindex; i++)
+	{
+		const int sv_max_usercmd_future_ticks = 8;
+
+		auto get_average_velocity_movement_delta = [](StoredNetvars* next_record, StoredNetvars* new_record) {
+			return NormalizeFloat(RAD2DEG(std::atan2(new_record->velocity.x, new_record->velocity.y))
+				- RAD2DEG(std::atan2(next_record->velocity.x, next_record->velocity.y))) / (new_record->simulationtime - next_record->simulationtime);
+		};
+
+		auto get_tickcount_for_ent = [&](float simulation_time) {
+			return TIME_TO_TICKS(simulation_time) + TIME_TO_TICKS(cl_interp_ratio->GetFloat() / cl_updaterate->GetFloat());
+		};
+
+		auto get_predicted_cmd_arrival_time = []() {
+			auto nci = Interfaces::Engine->GetNetChannelInfo();
+			return CurrentUserCmd->tick_count + 1 + TIME_TO_TICKS(nci->GetAvgLatency(FLOW_INCOMING) + nci->GetAvgLatency(FLOW_OUTGOING));
+		};
+
+		if ((size_t)i == Records->size())
+			return;
+
+		size_t temp_record_index = i;
+		auto nci = Interfaces::Engine->GetNetChannelInfo();
+
+		float lerptime = cl_interp_ratio->GetFloat() / cl_updaterate->GetFloat();
+		auto tickrecord = Records->at(temp_record_index);
+		auto lerpticks = TIME_TO_TICKS(lerptime);
+		auto predicted_cmd_arrival_tick = get_predicted_cmd_arrival_time();
+
+		if (temp_record_index > 0) {
+			auto correct = clamp(lerptime + nci->GetLatency(FLOW_OUTGOING), 0.f, 1.f) - TICKS_TO_TIME(predicted_cmd_arrival_tick + lerpticks - get_tickcount_for_ent(tickrecord->simulationtime));
+
+			if (fabs(correct) > 0.2f)
+				return;
+
+			auto did_break = false;
+			size_t tickrecord_index = 0;
+			auto previous_tickrecord = Records->at(tickrecord_index);
+			auto tickrecord = Records->at(tickrecord_index + 1);
+
+			while ((previous_tickrecord->origin - tickrecord->origin).LengthSqr() <= (64.0f * 64.0f)) {
+				if (++tickrecord_index >= temp_record_index) {
+					did_break = true;
+					break;
+				}
+			}
+
+			if (!did_break)
+				return;
+		}
+
+		if (temp_record_index >= Records->size())
+			return;
+
+		while (true) {
+			auto current_tickrecord = Records->at(temp_record_index);
+
+			if (get_tickcount_for_ent(current_tickrecord->simulationtime) <= (predicted_cmd_arrival_tick + 8)) //sv_max_usercmd_future_ticks
+				break;
+
+			if ((size_t)++temp_record_index >= Records->size())
+				return;
+		}
+
+		auto new_tickrecord = Records->at(temp_record_index);
+		auto next_tickrecord = Records->at(temp_record_index + 1);
+
+		if (!new_tickrecord->simulationtime || !next_tickrecord->simulationtime)
+			return; // note: sanity check
+
+		bool lost_track = bool((new_tickrecord->origin - next_tickrecord->origin).LengthSqr() > (64.0f * 64.0f));
+
+#if 0
+		QAngle TargetEyeAngles = new_tickrecord->eyeangles;
+		if (pCPlayer->LatestLowerBodyUpdate)
+			TargetEyeAngles.y = pCPlayer->LatestLowerBodyUpdate->lowerbodyyaw;
+		else
+			GetIdealYaw(TargetEyeAngles.y, pCPlayer->Personalize.correctedindex, pCPlayer, Entity, LocalPlayer);
+		GetIdealPitch(TargetEyeAngles.x, pCPlayer->Personalize.correctedindex, pCPlayer, Entity, LocalPlayer);
+#endif
+		CM_RestoreNetvars(new_tickrecord, pCPlayer->BaseEntity);
+
+		//auto tickcount = get_tickcount_for_ent(new_tickrecord->simulationtime);
+
+		if (lost_track) {
+			CSimulationData data(pCPlayer->BaseEntity);
+
+			auto simulation_delta_time = (TICKS_TO_TIME(CurrentUserCmd->tick_count) + nci->GetAvgLatency(FLOW_OUTGOING)) - new_tickrecord->simulationtime;
+			simulation_delta_time = clamp(simulation_delta_time, 1.f, simulation_delta_time);
+
+			auto simulation_ticks_delta = clamp(TIME_TO_TICKS(new_tickrecord->simulationtime - next_tickrecord->simulationtime), 1, 15);
+			auto total_delta = (TIME_TO_TICKS(simulation_delta_time) - simulation_ticks_delta);
+
+			auto velocity_movement_delta = get_average_velocity_movement_delta(next_tickrecord, new_tickrecord);
+			auto velocity_degree = RAD2DEG(std::atan2(new_tickrecord->velocity.x, new_tickrecord->velocity.y));
+			auto backup_origin = new_tickrecord->origin;
+
+			if (total_delta >= 0) {
+				for (; total_delta >= 0; total_delta -= simulation_ticks_delta) {
+					if (simulation_ticks_delta > 0) {
+						auto simulation_ticks = simulation_ticks_delta;
+						do {
+							auto extrapolated_movement = velocity_degree + (velocity_movement_delta * Interfaces::Globals->interval_per_tick);
+
+							data.velocity.x = std::cos(DEG2RAD(extrapolated_movement)) * data.velocity.Length2D();
+							data.velocity.y = std::sin(DEG2RAD(extrapolated_movement)) * data.velocity.Length2D();
+							SimulateMovement(data, !(pCPlayer->BaseEntity->GetFlags() & FL_ONGROUND));
+
+							velocity_degree = extrapolated_movement;
+							--simulation_ticks;
+						} while (simulation_ticks);
+					}
+				}
+
+				new_tickrecord->origin = data.absorigin;
+			}
+
+			else
+				new_tickrecord->origin = backup_origin;
+
+#if 0
+			TargetEyeAngles = new_tickrecord->eyeangles;
+			if (pCPlayer->LatestLowerBodyUpdate)
+				TargetEyeAngles.y = pCPlayer->LatestLowerBodyUpdate->lowerbodyyaw;
+			else
+				GetIdealYaw(TargetEyeAngles.y, pCPlayer->Personalize.correctedindex, pCPlayer, Entity, LocalPlayer);
+			GetIdealPitch(TargetEyeAngles.x, pCPlayer->Personalize.correctedindex, pCPlayer, Entity, LocalPlayer);
+#endif
+			CM_RestoreNetvars(new_tickrecord, pCPlayer->BaseEntity);
+		}
+
+		pCPlayer->BacktrackTick = new_tickrecord->tickcount;
+
+		//This is already added back later
+		//if (RemoveInterpChk.Checked)
+			//tickcount -= lerpticks;
+	}
+#endif
+}
+
+void CM_BacktrackPlayers()
+{
+	for (int i = 1; i <= MAX_PLAYERS; i++)
+	{
+		CBaseEntity* pPlayer = Interfaces::ClientEntList->GetClientEntity(i);
+		if (pPlayer && pPlayer->IsPlayer() && pPlayer->IsActive())
+		{
+			CustomPlayer* pCPlayer = &AllPlayers[pPlayer->index];
+
+			//Only backtrack resolved players
+			if (pCPlayer->Personalize.ShouldResolve())
+			{
+				//Always store current netvars because animations and interp could have changed their properties
+				pCPlayer->TempNetVars = StoredNetvars(pPlayer, pCPlayer);
+				if (!CM_BacktrackPlayer(pCPlayer, LocalPlayer, pPlayer))
+				{
+					//Couldn't backtrack the player, so try to compensate for any lag
+					CompensateLag(pCPlayer);
+				}
+			}
+			else
+			{
+				pCPlayer->BacktrackTick = 0;
+			}
+		}
+	}
+}
+
+void CM_RestorePlayers()
+{
+	for (int i = 1; i <= MAX_PLAYERS; i++)
+	{
+		CBaseEntity* pPlayer = Interfaces::ClientEntList->GetClientEntity(i);
+		if (pPlayer && pPlayer->IsPlayer() && pPlayer->IsActive())
+		{
+			CustomPlayer* pCPlayer = &AllPlayers[pPlayer->index];
+			if (pCPlayer->Personalize.ShouldResolve() && pCPlayer->BacktrackTick > 0)
+			{
+				CM_RestoreNetvars(&pCPlayer->TempNetVars, pPlayer);
+				pCPlayer->BacktrackTick = 0;
+			}
+		}
+	}
+}
+
+void AdjustTickCountForCmd(CBaseEntity *const pPlayerFiredAt, bool bLocalPlayerIsFiring)
+{
+	int lerpTicks = RemoveInterpChk.Checked ? TIME_TO_TICKS(cl_interp_ratio->GetFloat() / cl_updaterate->GetFloat()) : 0;
+	//pPlayerFiredAt is the player we are aimbotting or triggerbotting and we are definitely firing a bullet this tick
+	if (pPlayerFiredAt)
+	{
+		CustomPlayer *pCPlayer = &AllPlayers[ReadInt((uintptr_t)&pPlayerFiredAt->index)];
+		if (ResolverChk.Checked && (pCPlayer->Backtracked || bTickIsValid(pCPlayer->BacktrackTick)))
+		{
+			WriteInt((uintptr_t)&CurrentUserCmd->tick_count, pCPlayer->BacktrackTick + lerpTicks);
+		}
+		else
+		{
+			int targettick = TIME_TO_TICKS(pPlayerFiredAt->GetSimulationTime() - Interfaces::Globals->interval_per_tick) + 1;//TIME_TO_TICKS(pCPlayer->CurrentNetVars.simulationtime);
+			if (!bTickIsValid(targettick))
+				targettick = ReadInt((uintptr_t)&CurrentUserCmd->tick_count);
+			WriteInt((uintptr_t)&CurrentUserCmd->tick_count, targettick + lerpTicks);
+		}
+		//Store hit percentage so resolver won't count really inaccurate shots as misses
+		LastShotHitPercentage = CurrentHitPercentage;
+	}
+	else
+	{
+		if (bLocalPlayerIsFiring)
+		{
+			Vector vecDir;
+			Vector LocalEyePos = LocalPlayer->GetEyePosition(); //FIXME: correct this eye position for simtime?
+			QAngle EyeAngles = LocalPlayer->GetEyeAngles();
+			AngleVectors(EyeAngles, &vecDir);
+			VectorNormalizeFast(vecDir);
+			Vector EndPos = LocalEyePos + (vecDir * 8192.0f);
+			trace_t tr;
+			UTIL_TraceLine(LocalEyePos, EndPos, MASK_SHOT, LocalPlayer, &tr);
+			CTraceFilterPlayersOnlyNoWorld filter;
+			filter.AllowTeammates = true;
+			filter.pSkip = (IHandleEntity*)LocalPlayer;
+			filter.m_icollisionGroup = COLLISION_GROUP_NONE;
+			UTIL_ClipTraceToPlayers(LocalEyePos, EndPos + vecDir * 40.0f, 0x4600400B, (ITraceFilter*)&filter, &tr);
+			if (tr.m_pEnt && tr.m_pEnt->IsPlayer())
+			{
+				CBaseCombatWeapon* weapon = LocalPlayer->GetWeapon();
+				if (WeaponCanFire(weapon))
+				{
+					//Store hit percentage so resolver won't count really inaccurate shots as misses
+					BulletWillHit(weapon, buttons, tr.m_pEnt, EyeAngles, LocalEyePos, &EndPos, CURRENT_HITCHANCE_FLAGS);
+					LastShotHitPercentage = CurrentHitPercentage;
+				}
+				int index = ReadInt((uintptr_t)&tr.m_pEnt->index);
+				if (index <= MAX_PLAYERS)
+				{
+					CustomPlayer* pCPlayer = &AllPlayers[index];
+					if (ResolverChk.Checked && (pCPlayer->Backtracked || bTickIsValid(pCPlayer->BacktrackTick)))
+					{
+						WriteInt((uintptr_t)&CurrentUserCmd->tick_count, pCPlayer->BacktrackTick + lerpTicks);
+					}
+					else
+					{
+						int targettick = TIME_TO_TICKS(pCPlayer->BaseEntity->GetSimulationTime() - Interfaces::Globals->interval_per_tick) + 1;
+						if (!bTickIsValid(targettick))
+							targettick = ReadInt((uintptr_t)&CurrentUserCmd->tick_count);
+						WriteInt((uintptr_t)&CurrentUserCmd->tick_count, targettick + lerpTicks);
+					}
+				}
+			}
+		}
+	}
+}

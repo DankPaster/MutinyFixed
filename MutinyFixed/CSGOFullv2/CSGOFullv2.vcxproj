@@ -1,0 +1,1147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug Ignacio|Win32">
+      <Configuration>Debug Ignacio</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug Laptop|Win32">
+      <Configuration>Debug Laptop</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="JakeDebug|Win32">
+      <Configuration>JakeDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="JakeRelease|Win32">
+      <Configuration>JakeRelease</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="JakesDebug|Win32">
+      <Configuration>JakesDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release ATISSE2|Win32">
+      <Configuration>Release ATISSE2</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release ATI|Win32">
+      <Configuration>Release ATI</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Debug Heartbeat|Win32">
+      <Configuration>Release Debug Heartbeat</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Ignacio|Win32">
+      <Configuration>Release Ignacio</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release LLInjectable|Win32">
+      <Configuration>Release LLInjectable</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release No Heartbeat|Win32">
+      <Configuration>Release No Heartbeat</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release NVAVX|Win32">
+      <Configuration>Release NVAVX</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release NVSSE2|Win32">
+      <Configuration>Release NVSSE2</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Vista|Win32">
+      <Configuration>Release Vista</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ECC75929-390E-4D70-B7C7-4BF9D3BF2E49}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CSGOFullv2</RootNamespace>
+    <ProjectName>nvollib</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='JakesDebug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='JakeDebug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Laptop|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Ignacio|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release LLInjectable|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Debug Heartbeat|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='JakeRelease|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release No Heartbeat|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release NVAVX|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release NVSSE2|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Vista|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release ATI|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release ATISSE2|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Ignacio|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='JakesDebug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='JakeDebug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Laptop|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Ignacio|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release LLInjectable|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Debug Heartbeat|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='JakeRelease|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release No Heartbeat|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release NVAVX|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release NVSSE2|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Vista|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release ATI|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release ATISSE2|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Ignacio|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>C:\ClientFramework\VMProtect\Lib;C:\ClientFramework\Libs\x86\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='JakesDebug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='JakeDebug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Laptop|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>atiollib</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Ignacio|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>atiollib</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>csgofullv2</TargetName>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Release;C:\ClientFramework\VMProtect\Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release LLInjectable|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>csgofullv2</TargetName>
+    <LibraryPath>C:\ClientFramework\Framework\ImGUI;C:\ClientFramework\DrawManager;C:\ClientFramework\Framework\Menu;C:\Users\Clean\Desktop\EmuSDK\ImGUI\DX9;C:\Users\Clean\Desktop\EmuSDK-master\EmuSDK\ImGUI;C:\Users\Clean\Desktop\DX9 SDK\Lib\x86;C:\ClientFramework\Libs\x86\Release;C:\ClientFramework\VMProtect\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\ClientFramework\Framework\ImGUI;C:\ClientFramework\DrawManager;C:\ClientFramework\Framework\Menu;C:\Users\Clean\Desktop\EmuSDK\ImGUI;C:\Users\Clean\Desktop\EmuSDK\ImGUI\DX9;C:\Users\Clean\Desktop\DX9 SDK\Include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Debug Heartbeat|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>csgofullv2</TargetName>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Release;C:\ClientFramework\VMProtect\Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='JakeRelease|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>csgofullv2</TargetName>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Release;C:\ClientFramework\VMProtect\Lib;$(LibraryPath)</LibraryPath>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release No Heartbeat|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>csgofullv2</TargetName>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release NVAVX|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release NVSSE2|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Vista|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release ATI|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>atiollib</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release ATISSE2|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>atiollib</TargetName>
+    <LibraryPath>C:\ClientFramework\Libs\x86\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Ignacio|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>atiollib</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;ALLOWDEBUG;_CRT_SECURE_NO_WARNINGS;ALLOW_DEBUGGING;SERVER_CRASHER;USE_REBUILT_HANDLE_BULLET_PENETRATION;sMUTINY;sFRAME_NETWORK;PRINT_FUNCTION_NAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\tier0;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\SourceEngine;$(ProjectDir)\DirectX_SDK_June_2010\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>$(ProjectDir)\DirectX_SDK_June_2010\Lib\x86\d3dx9.lib;Ws2_32.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\ClientFramework\VMProtect\Lib;C:\ClientFramework\Libs\x86\Release;E:\Desktop\Games and Progams\C++ Projects\C++ Libs\VMProtect\Lib\Windows;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='JakesDebug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;NewMenu;USE_IMGUI;NO_MUTINY_HEARTBEAT;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_CRT_SECURE_NO_WARNINGS;MUTINY;FRAME_32;FRAME_DX9;USE_REBUILT_HANDLE_BULLET_PENETRATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\tier0;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\SourceEngine;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;Ws2_32.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='JakeDebug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;WIN32;NewMenu;USE_IMGUI;NO_MUTINY_HEARTBEAT;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_CRT_SECURE_NO_WARNINGS;MUTINY;FRAME_32;FRAME_DX9;USE_REBUILT_HANDLE_BULLET_PENETRATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\tier0;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\SourceEngine;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;Ws2_32.lib;ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Laptop|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;ATI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\tier0;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\SourceEngine;I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ManifestFile>$(IntDir)atiollib$(TargetExt).intermediate.manifest</ManifestFile>
+      <ProgramDatabaseFile>$(OutDir)atiollib.pdb</ProgramDatabaseFile>
+      <ProfileGuidedDatabase>$(OutDir)atiollib.pgd</ProfileGuidedDatabase>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Ignacio|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;ATI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\tier0;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\SourceEngine;F:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>F:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ManifestFile>$(IntDir)atiollib$(TargetExt).intermediate.manifest</ManifestFile>
+      <ProgramDatabaseFile>$(OutDir)atiollib.pdb</ProgramDatabaseFile>
+      <ProfileGuidedDatabase>$(OutDir)atiollib.pgd</ProfileGuidedDatabase>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_CRT_SECURE_NO_WARNINGS;MUTINY;USE_REBUILT_HANDLE_BULLET_PENETRATION;VMPROTECT;NDEBUG;FRAME_32;FRAME_DX9;FRAME_LOCALCONF;NewMenu;FRAME_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)\DirectX_SDK_June_2010\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>$(ProjectDir)\DirectX_SDK_June_2010\Lib\x86\d3dx9.lib;Ws2_32.lib;VMProtectSDK32.lib;C:\clientframework\Libs\x86\Release\libcurl.lib;C:\clientframework\Libs\x86\Release\libeay32MT.lib;C:\clientframework\Libs\x86\Release\ssleay32MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>true</AssemblyDebug>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>true</FullProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>MUTINY</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release LLInjectable|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_CRT_SECURE_NO_WARNINGS;USE_REBUILT_HANDLE_BULLET_PENETRATION;NO_MUTINY_HEARTBEAT;LOAD_LIBRARY_INJECTABLE;FRAME_STRINGCONF;logicResolver;SERVER_CRASHER;DEBUG;NDEBUG;MUTINY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)\DirectX_SDK_June_2010\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>$(ProjectDir)\DirectX_SDK_June_2010\Lib\x86\d3dx9.lib;Ws2_32.lib;VMProtectSDK32.lib;C:\clientframework\Libs\x86\Release\libcurl.lib;C:\clientframework\Libs\x86\Release\libeay32MT.lib;C:\clientframework\Libs\x86\Release\ssleay32MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>false</AssemblyDebug>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>MUTINY</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Debug Heartbeat|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;USE_IMGUI;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_CRT_SECURE_NO_WARNINGS;MUTINY;FRAME_32;FRAME_DX9;USE_REBUILT_HANDLE_BULLET_PENETRATION;ALLOW_DEBUGGING;VMPROTECT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)\DirectX_SDK_June_2010\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>$(ProjectDir)\DirectX_SDK_June_2010\Lib\x86\d3dx9.lib;Ws2_32.lib;VMProtectSDK32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>true</AssemblyDebug>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>true</FullProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>MUTINY</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='JakeRelease|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;USE_IMGUI;NewMenu;NO_MUTINY_HEARTBEAT;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_CRT_SECURE_NO_WARNINGS;MUTINY;FRAME_32;FRAME_DX9;USE_REBUILT_HANDLE_BULLET_PENETRATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)\DirectX_SDK_June_2010\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>$(ProjectDir)\DirectX_SDK_June_2010\Lib\x86\d3dx9.lib;Ws2_32.lib;VMProtectSDK32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>false</AssemblyDebug>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <GenerateMapFile>false</GenerateMapFile>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>MUTINY</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release No Heartbeat|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_CRT_SECURE_NO_WARNINGS;MUTINY;FRAME_32;FRAME_DX9;NO_MUTINY_HEARTBEAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)\DirectX_SDK_June_2010\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>$(ProjectDir)\DirectX_SDK_June_2010\Lib\x86\d3dx9.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>false</AssemblyDebug>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>MUTINY</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release NVAVX|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;FRAME_32;FRAME_DX9;SERVER_CRASHER;USE_REBUILT_HANDLE_BULLET_PENETRATION;PRINT_FUNCTION_NAMESz;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <OmitFramePointers>true</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>true</AssemblyDebug>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>true</FullProgramDatabaseFile>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release NVSSE2|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_HAS_EXCEPTIONS=0;LICENSED;_CRT_SECURE_NO_WARNINGS;FRAME_32;FRAME_DX9;USE_REBUILT_HANDLE_BULLET_PENETRATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <OmitFramePointers>true</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>false</AssemblyDebug>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Vista|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;_HAS_EXCEPTIONS=0;LICENSED;VISTA;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <OmitFramePointers>true</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;Ws2_32.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>false</AssemblyDebug>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release ATI|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;ATI;_HAS_EXCEPTIONS=0;LICENSED;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <OmitFramePointers>true</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;wsock32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>false</AssemblyDebug>
+      <ProgramDatabaseFile>$(OutDir)atiollib.pdb</ProgramDatabaseFile>
+      <ManifestFile>$(IntDir)atiollib$(TargetExt).intermediate.manifest</ManifestFile>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>ATI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release ATISSE2|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;ATI;_HAS_EXCEPTIONS=0;LICENSED;_CRT_SECURE_NO_WARNINGS;FRAME_32;FRAME_DX9;USE_REBUILT_HANDLE_BULLET_PENETRATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <OmitFramePointers>true</OmitFramePointers>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>I:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;wsock32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>false</AssemblyDebug>
+      <ProgramDatabaseFile>$(OutDir)atiollib.pdb</ProgramDatabaseFile>
+      <ManifestFile>$(IntDir)atiollib$(TargetExt).intermediate.manifest</ManifestFile>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>ATI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Ignacio|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CSGO_HX_EXPORTS;ATI;LICENSED;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>F:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(ProjectDir)\public;$(ProjectDir)\mathlib;$(ProjectDir)\tier0;$(ProjectDir)\SourceEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>F:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AssemblyDebug>false</AssemblyDebug>
+      <ProgramDatabaseFile>$(OutDir)atiollib.pdb</ProgramDatabaseFile>
+      <ManifestFile>$(IntDir)atiollib$(TargetExt).intermediate.manifest</ManifestFile>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
+      <!--LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration-->
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Aimbot.h" />
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="AutoBone.h" />
+    <ClInclude Include="AutoGrief.h" />
+    <ClInclude Include="AutoWall.h" />
+    <ClInclude Include="BaseAnimating.h" />
+    <ClInclude Include="BaseCombatWeapon.h" />
+    <ClInclude Include="bfwrite.h" />
+    <ClInclude Include="bitvec.h" />
+    <ClInclude Include="BunnyHop.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\Encryption\Crypto.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\Heartbeat\Heartbeat.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\imconfig.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\imgui.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\imgui_impl.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\imgui_internal.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\stb_rect_pack.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\stb_textedit.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\ImGUI\stb_truetype.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\Include\Frame-Include.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\JSON\JSON.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\Logging\Logging.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\Menu\Fonts.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\Menu\Menu.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\ModuleSecurity\ModuleSec.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\RSA\RSA.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\StringEncryption\StringEncryption.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\WebConfig\WebConfig.h" />
+    <ClInclude Include="C:\ClientFramework\Framework\Winsock\Winsock.h" />
+    <ClInclude Include="CBaseHandle.h" />
+    <ClInclude Include="CGOTVRecorder.h" />
+    <ClInclude Include="CharSplit.h" />
+    <ClInclude Include="ClassIDS.h" />
+    <ClInclude Include="ClientSideAnimationList.h" />
+    <ClInclude Include="ConfigFile.h" />
+    <ClInclude Include="ConVar.h" />
+    <ClInclude Include="coordsize.h" />
+    <ClInclude Include="CreateMove.h" />
+    <ClInclude Include="CSGO_HX.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="Intersection.h" />
+    <ClInclude Include="CUtlMemory.h" />
+    <ClInclude Include="CViewSetup.h" />
+    <ClInclude Include="BaseEntity.h" />
+    <ClInclude Include="c_playerresource.h" />
+    <ClInclude Include="dataupdatetypes.h" />
+    <ClInclude Include="Deque.h" />
+    <ClInclude Include="DirectX.h" />
+    <ClInclude Include="EncryptString.h" />
+    <ClInclude Include="ErrorCodes.h" />
+    <ClInclude Include="ESP.h" />
+    <ClInclude Include="Events.h" />
+    <ClInclude Include="FakeLag.h" />
+    <ClInclude Include="FixMove.h" />
+    <ClInclude Include="GameEventListener.h" />
+    <ClInclude Include="GameMovementSimulation.h" />
+    <ClInclude Include="GetViewModelFOV.h" />
+    <ClInclude Include="GOTV.h" />
+    <ClInclude Include="GrenadePrediction.h" />
+    <ClInclude Include="HitChance.h" />
+    <ClInclude Include="ICollidable.h" />
+    <ClInclude Include="ICvar.h" />
+    <ClInclude Include="IGameMovement.h" />
+    <ClInclude Include="hDirectX.h" />
+    <ClInclude Include="hDrawings.h" />
+    <ClInclude Include="IBaseClientDLL.h" />
+    <ClInclude Include="IClientEntityList.h" />
+    <ClInclude Include="IClientModeShared.h" />
+    <ClInclude Include="IEngineClient.h" />
+    <ClInclude Include="IEngineTrace.h" />
+    <ClInclude Include="IGlobalVarsBase.h" />
+    <ClInclude Include="imdlcache.h" />
+    <ClInclude Include="IModelInfoClient.h" />
+    <ClInclude Include="INetchannelInfo.h" />
+    <ClInclude Include="Interfaces.h" />
+    <ClInclude Include="GameMemory.h" />
+    <ClInclude Include="Interpolation.h" />
+    <ClInclude Include="IPrediction.h" />
+    <ClInclude Include="ivdebugoverlay.h" />
+    <ClInclude Include="IVPanel.h" />
+    <ClInclude Include="IVRenderView.h" />
+    <ClInclude Include="KnifeBot.h" />
+    <ClInclude Include="LegitBot.h" />
+    <ClInclude Include="Licensing.h" />
+    <ClInclude Include="Licensing2.h" />
+    <ClInclude Include="LocalPlayer.h" />
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="mathshit.h" />
+    <ClInclude Include="memalloc.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="misc.h" />
+    <ClInclude Include="model_types.h" />
+    <ClInclude Include="MutinyInject.h" />
+    <ClInclude Include="NameChanger.h" />
+    <ClInclude Include="netadr.h" />
+    <ClInclude Include="Netchan.h" />
+    <ClInclude Include="NetVarManager.h" />
+    <ClInclude Include="NetVars.h" />
+    <ClInclude Include="NoRecoil.h" />
+    <ClInclude Include="NoSpread.h" />
+    <ClInclude Include="Offsets.h" />
+    <ClInclude Include="Overlay.h" />
+    <ClInclude Include="OverrideView.h" />
+    <ClInclude Include="platform.h" />
+    <ClInclude Include="PlayerList.h" />
+    <ClInclude Include="player_lagcompensation.h" />
+    <ClInclude Include="Profiler.h" />
+    <ClInclude Include="pSilent.h" />
+    <ClInclude Include="RadianEuler.h" />
+    <ClInclude Include="Reporting.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="RunCommand.h" />
+    <ClInclude Include="SetClanTag.h" />
+    <ClInclude Include="SkinWindow.h" />
+    <ClInclude Include="SpawnBlood.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Targetting.h" />
+    <ClInclude Include="TE_EffectDispatch.h" />
+    <ClInclude Include="TE_FireBullets.h" />
+    <ClInclude Include="ThirdPerson.h" />
+    <ClInclude Include="Trace.h" />
+    <ClInclude Include="TraceRay.h" />
+    <ClInclude Include="Triggerbot.h" />
+    <ClInclude Include="Usefuls.h" />
+    <ClInclude Include="utlblockmemory.h" />
+    <ClInclude Include="utlfixedmemory.h" />
+    <ClInclude Include="utllinkedlist.h" />
+    <ClInclude Include="utlmap.h" />
+    <ClInclude Include="utlrbtree.h" />
+    <ClInclude Include="utlvector.h" />
+    <ClInclude Include="utlvectorsimple.h" />
+    <ClInclude Include="VMProtectDefs.h" />
+    <ClInclude Include="VPhysics.h" />
+    <ClInclude Include="VTHook.h" />
+    <ClInclude Include="worldsize.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Aimbot.cpp" />
+    <ClCompile Include="AutoBone.cpp" />
+    <ClCompile Include="AutoGrief.cpp" />
+    <ClCompile Include="AutoWall.cpp" />
+    <ClCompile Include="BaseAnimating.cpp" />
+    <ClCompile Include="BaseCombatWeapon.cpp" />
+    <ClCompile Include="bfwrite.cpp" />
+    <ClCompile Include="Bunnyhop.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\Encryption\Crypto.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\Heartbeat\Heartbeat.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\ImGUI\imgui.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\ImGUI\imgui_demo.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\ImGUI\imgui_draw.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\ImGUI\imgui_impl.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\JSON\JSON.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\Logging\Logging.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\ModuleSecurity\ModuleSec.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\RSA\RSA.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\StringEncryption\StringEncryption.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\WebConfig\WebConfig.cpp" />
+    <ClCompile Include="C:\ClientFramework\Framework\Winsock\Winsock.cpp" />
+    <ClCompile Include="CBaseHandle.cpp" />
+    <ClCompile Include="cDirectX.cpp" />
+    <ClCompile Include="cDrawings.cpp" />
+    <ClCompile Include="CharSplit.cpp" />
+    <ClCompile Include="ClientSideAnimationList.cpp" />
+    <ClCompile Include="ConfigFile.cpp" />
+    <ClCompile Include="ConVar.cpp" />
+    <ClCompile Include="CreateMove.cpp" />
+    <ClCompile Include="CSGO_HX.cpp" />
+    <ClCompile Include="DemoPlayingBack.cpp" />
+    <ClCompile Include="DirectX.cpp" />
+    <ClCompile Include="EmitSounds.cpp" />
+    <ClCompile Include="ErrorCodes.cpp" />
+    <ClCompile Include="FrameStageNotify.cpp" />
+    <ClCompile Include="FrameUpdatePostEntityThink.cpp" />
+    <ClCompile Include="framework.cpp" />
+    <ClCompile Include="GetViewModelFOV.cpp" />
+    <ClCompile Include="Interfaces.cpp" />
+    <ClCompile Include="Intersection.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='JakesDebug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='JakeDebug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug Laptop|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug Ignacio|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='JakesDebug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='JakeDebug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug Laptop|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug Ignacio|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release LLInjectable|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release Debug Heartbeat|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='JakeRelease|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release No Heartbeat|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release NVAVX|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release NVSSE2|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release Vista|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release ATI|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release ATISSE2|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release Ignacio|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release LLInjectable|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release Debug Heartbeat|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='JakeRelease|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release No Heartbeat|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release NVAVX|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release NVSSE2|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release Vista|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release ATI|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release ATISSE2|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release Ignacio|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="BaseEntity.cpp" />
+    <ClCompile Include="EncryptString.cpp" />
+    <ClCompile Include="ESP.cpp" />
+    <ClCompile Include="Events.cpp" />
+    <ClCompile Include="FakeLag.cpp" />
+    <ClCompile Include="FixMove.cpp" />
+    <ClCompile Include="GameEventListener.cpp" />
+    <ClCompile Include="GameMemory.cpp" />
+    <ClCompile Include="GOTV.cpp" />
+    <ClCompile Include="GrenadePrediction.cpp" />
+    <ClCompile Include="HitChance.cpp" />
+    <ClCompile Include="IBaseClientDLL.cpp" />
+    <ClCompile Include="IsPaused.cpp" />
+    <ClCompile Include="IVPanel.cpp" />
+    <ClCompile Include="KnifeBot.cpp" />
+    <ClCompile Include="LegitBot.cpp" />
+    <ClCompile Include="Licensing.cpp" />
+    <ClCompile Include="Licensing2.cpp" />
+    <ClCompile Include="LocalPlayer.cpp" />
+    <ClCompile Include="Math.cpp" />
+    <ClCompile Include="mathshit.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="misc.cpp" />
+    <ClCompile Include="MutinyInject.cpp" />
+    <ClCompile Include="NameChanger.cpp" />
+    <ClCompile Include="netadr.cpp" />
+    <ClCompile Include="NetVarManager.cpp" />
+    <ClCompile Include="NetVars.cpp" />
+    <ClCompile Include="NoRecoil.cpp" />
+    <ClCompile Include="NoSpread.cpp" />
+    <ClCompile Include="Overlay.cpp" />
+    <ClCompile Include="OverrideView.cpp" />
+    <ClCompile Include="PaintTraverse.cpp" />
+    <ClCompile Include="PlayerList.cpp" />
+    <ClCompile Include="player_lagcompensation.cpp" />
+    <ClCompile Include="PlaySound.cpp" />
+    <ClCompile Include="Profiler.cpp" />
+    <ClCompile Include="pSilent.cpp" />
+    <ClCompile Include="RadianEuler.cpp" />
+    <ClCompile Include="Reporting.cpp" />
+    <ClCompile Include="RunCommand.cpp" />
+    <ClCompile Include="SendDatagram.cpp" />
+    <ClCompile Include="SetClanTag.cpp" />
+    <ClCompile Include="GameMovementSimulation.cpp" />
+    <ClCompile Include="SkinWindow.cpp" />
+    <ClCompile Include="SpawnBlood.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='JakesDebug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='JakeDebug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug Laptop|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug Ignacio|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release LLInjectable|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release Debug Heartbeat|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='JakeRelease|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release No Heartbeat|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release NVAVX|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release NVSSE2|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release Vista|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release ATI|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release ATISSE2|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release Ignacio|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Targetting.cpp" />
+    <ClCompile Include="TE_EffectDispatch.cpp" />
+    <ClCompile Include="TE_FireBullets.cpp" />
+    <ClCompile Include="ThirdPerson.cpp" />
+    <ClCompile Include="Trace.cpp" />
+    <ClCompile Include="TraceRay.cpp" />
+    <ClCompile Include="Triggerbot.cpp" />
+    <ClCompile Include="VTHook.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="nvollib.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

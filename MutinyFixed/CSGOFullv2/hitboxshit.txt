@@ -1,0 +1,102 @@
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+
+bool CFuckSkeet::GetHitbox(CBaseEntity* target, Hitbox* hitbox)
+{
+	matrix3x4a_t matrix[MAXSTUDIOBONES];
+
+	if (!target->SetupBones(matrix, MAXSTUDIOBONES, BONE_USED_BY_HITBOX, 0))
+		return false;
+
+
+	studiohdr_t *hdr = I::ModelInfo->GetStudioModel(target->GetModel());
+
+	if (!hdr)
+		return false;
+
+	mstudiohitboxset_t *hitboxSet = hdr->pHitboxSet(target->GetHitboxSet());
+	mstudiobbox_t *untransformedBox = hitboxSet->pHitbox(hitbox->hitbox);
+
+	Vector bbmin = untransformedBox->bbmin;
+	Vector bbmax = untransformedBox->bbmax;
+
+	if (untransformedBox->radius != -1.f)
+	{
+		bbmin -= Vector(untransformedBox->radius, untransformedBox->radius, untransformedBox->radius);
+		bbmax += Vector(untransformedBox->radius, untransformedBox->radius, untransformedBox->radius);
+	}
+
+	Vector points[] = { ((bbmin + bbmax) * .5f),
+		Vector(bbmin.x, bbmin.y, bbmin.z),
+		Vector(bbmin.x, bbmax.y, bbmin.z),
+		Vector(bbmax.x, bbmax.y, bbmin.z),
+		Vector(bbmax.x, bbmin.y, bbmin.z),
+		Vector(bbmax.x, bbmax.y, bbmax.z),
+		Vector(bbmin.x, bbmax.y, bbmax.z),
+		Vector(bbmin.x, bbmin.y, bbmax.z),
+		Vector(bbmax.x, bbmin.y, bbmax.z) };
+
+
+	for (int index = 0; index <= 8; ++index)
+	{
+		if (index != 0)
+		{
+			points[index] = ((((points[index] + points[0]) * .5f) + points[index]) * .5f);
+			points[index] *= Vars.Ragebot.Pointscale;
+		}
+
+		M::VectorTransform(points[index], matrix[untransformedBox->bone], hitbox->points[index]);
+	}
+
+	return true;
+}
+
